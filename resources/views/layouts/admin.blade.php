@@ -26,25 +26,28 @@
 <body>
     <div id="app">
 
-        <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-2 shadow">
+        <header
+            class="navbar navbar-dark navbar-expand-lg sticky-top bg-dark flex-md-nowrap justify-content-between p-2 shadow">
             <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="/">BoolFolio</a>
-            <button class="navbar-toggler position-absolute start-50 d-md-none collapsed" type="button"
-                data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
             {{-- <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search"> --}}
-            <div class="navbar-nav">
-                <div class="nav-item text-nowrap ms-2">
-                    <a class="nav-link" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
+            <div class="hstack gap-2">
+                <div class="navbar-nav me-2">
+                    <div class="nav-item text-nowrap ms-2">
+                        <a class="nav-link" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
+                            {{ __('Logout') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </div>
                 </div>
+                <button class="navbar-toggler d-md-none collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
             </div>
         </header>
 
@@ -52,11 +55,17 @@
             <div class="row h-100">
                 <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark sidebar collapse">
                     <div class="position-sticky pt-3">
-                        <ul class="nav flex-column">
+                        <ul class="nav flex-column gap-1 pb-2">
                             <li class="nav-item">
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}"
+                                <a class="nav-link text-white rounded-1 {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.dashboard') }}">
                                     <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Dashboard
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white rounded-1 {{ Route::currentRouteName() == 'admin.projects.index' ? 'bg-secondary' : '' }}"
+                                    href="{{ route('admin.projects.index') }}">
+                                    <i class="fa-solid fa-list-check fa-lg fa-fw"></i> Projects
                                 </a>
                             </li>
                         </ul>

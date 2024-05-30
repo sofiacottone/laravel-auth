@@ -24,9 +24,13 @@
                     <td>{{ $project->client_name }}</td>
                     <td>{{ $project->summary }}</td>
 
+                    {{-- actions  --}}
                     <td>
-                        <div>
-                            <a href="{{ route('admin.projects.show', ['project' => $project->id]) }}">More</a>
+                        <div class="text-center">
+                            <a href="{{ route('admin.projects.show', ['project' => $project->id]) }}"
+                                class="btn btn-outline-secondary">
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </a>
                         </div>
                     </td>
                 </tr>

@@ -11,6 +11,7 @@
                 <th>Slug</th>
                 <th>Client name</th>
                 <th>Summary</th>
+                <th>Actions</th>
             </tr>
         </thead>
 
@@ -25,7 +26,7 @@
 
                     <td>
                         <div>
-                            <a href="{{ route('admin.projects.show', ['project' => $project->id]) }}">View</a>
+                            <a href="{{ route('admin.projects.show', ['project' => $project->id]) }}">More</a>
                         </div>
                     </td>
                 </tr>

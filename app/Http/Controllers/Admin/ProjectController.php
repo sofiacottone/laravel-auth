@@ -102,6 +102,12 @@ class ProjectController extends Controller
                 'summary' => 'nullable|min:5',
             ]
         );
+
+        $formData = $request->all();
+        $project->slug = Str::slug($formData['name'], '-');
+        $project->update($formData);
+
+        return redirect()->route('admin.projects.show', compact('project'));
     }
 
     /**

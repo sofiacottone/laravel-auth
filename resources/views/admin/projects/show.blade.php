@@ -8,6 +8,8 @@
         </div>
         <div>Slug: {{ $project->slug }}</div>
         <div>Client: {{ $project->client_name }}</div>
+        <div>Created: {{ $project->created_at }}</div>
+        <div>Updated: {{ $project->updated_at }}</div>
         <div class="mt-5">{{ $project->summary }}</div>
     </div>
 @endsection

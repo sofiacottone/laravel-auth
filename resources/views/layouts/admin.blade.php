@@ -68,6 +68,12 @@
                                     <i class="fa-solid fa-list-check fa-lg fa-fw"></i> Projects
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white rounded-1 {{ Route::currentRouteName() == 'admin.projects.create' ? 'bg-secondary' : '' }}"
+                                    href="{{ route('admin.projects.create') }}">
+                                    <i class="fa-solid fa-plus fa-lg fa-fw"></i> New project
+                                </a>
+                            </li>
                         </ul>
 
 

@@ -74,6 +74,12 @@
                                     <i class="fa-solid fa-plus fa-lg fa-fw"></i> New project
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white rounded-1 {{ Route::currentRouteName() == 'admin.projects.deleted' ? 'bg-secondary' : '' }}"
+                                    href="{{ route('admin.projects.deleted') }}">
+                                    <i class="fa-solid fa-trash fa-lg fa-fw"></i> Deleted projects
+                                </a>
+                            </li>
                         </ul>
 
 

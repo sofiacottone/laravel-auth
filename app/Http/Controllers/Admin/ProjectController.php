@@ -134,4 +134,16 @@ class ProjectController extends Controller
 
         return view('admin.projects.deleted', compact('projects'));
     }
+
+    /**
+     * Restore a specified soft deleted resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function restore($id)
+    {
+        Project::withTrashed()->findOrFail($id)->restore();
+
+        return redirect()->route('admin.projects.index');
+    }
 }

@@ -26,6 +26,7 @@ Route::middleware((['auth', 'verified']))
     ->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
         Route::resource('projects', ProjectController::class);
+        Route::get('/deleted', [ProjectController::class, 'deleted'])->name('projects.deleted');
     });
 
 Route::middleware('auth')->group(function () {

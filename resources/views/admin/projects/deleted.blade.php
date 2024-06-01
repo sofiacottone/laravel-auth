@@ -11,6 +11,7 @@
                     <th>Name</th>
                     <th>Client name</th>
                     <th>Created</th>
+                    <th>Deleted</th>
                     <th class="text-center">Actions</th>
                 </tr>
             </thead>
@@ -22,18 +23,15 @@
                         <td>{{ $project->name }}</td>
                         <td>{{ $project->client_name }}</td>
                         <td>{{ $project->created_at }}</td>
+                        <td>{{ $project->deleted_at }}</td>
 
                         {{-- actions  --}}
                         <td>
                             <div class="hstack justify-content-center gap-2 text-center">
-                                <a href="{{ route('admin.projects.show', ['project' => $project->id]) }}"
-                                    class="btn btn-outline-secondary">
-                                    <i class="fa-solid fa-ellipsis-vertical"></i>
-                                </a>
 
-                                <a href="{{ route('admin.projects.edit', ['project' => $project->id]) }}"
+                                <a href="{{ route('admin.projects.restore', ['project' => $project->id]) }}"
                                     class="btn btn-outline-secondary">
-                                    <i class="fa-solid fa-pencil"></i>
+                                    <i class="fa-solid fa-trash-can-arrow-up"></i>
                                 </a>
 
                                 <form action="{{ route('admin.projects.destroy', ['project' => $project->id]) }}"

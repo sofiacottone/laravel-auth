@@ -116,8 +116,22 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Project $project)
     {
-        //
+        $project->delete();
+
+        return redirect()->route('admin.projects.index');
+    }
+
+    /**
+     * Display a listing of the deleted resources.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function deleted()
+    {
+        $projects = Project::onlyTrashed()->get();
+
+        return view('admin.projects.deleted', compact('projects'));
     }
 }

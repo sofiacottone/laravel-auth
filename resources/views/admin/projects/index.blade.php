@@ -1,9 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h1>Projects</h1>
+    <h2>Projects</h2>
 
-    <table class="table table-striped">
+    <table class="table table-striped mt-3">
         <thead>
             <tr>
                 <th>ID</th>

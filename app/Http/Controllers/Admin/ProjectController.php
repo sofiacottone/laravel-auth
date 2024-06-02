@@ -146,4 +146,16 @@ class ProjectController extends Controller
 
         return redirect()->route('admin.projects.index');
     }
+
+    /**
+     * Permanently delete a specified resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function forceDelete($id)
+    {
+        Project::withTrashed()->findOrFail($id)->forceDelete();
+
+        return redirect()->route('admin.projects.index');
+    }
 }

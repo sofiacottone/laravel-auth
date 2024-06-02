@@ -53,7 +53,8 @@
 
         <div class="container-fluid vh-100">
             <div class="row h-100">
-                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark sidebar collapse">
+                <nav id="sidebarMenu"
+                    class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark sidebar collapse h-100 position-fixed">
                     <div class="position-sticky pt-3">
                         <ul class="nav flex-column gap-1 pb-2">
                             <li class="nav-item">
@@ -63,9 +64,11 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white rounded-1 {{ Route::currentRouteName() == 'admin.projects.index' ? 'bg-secondary' : '' }}"
+                                <a class="nav-link text-white rounded-1 hstack justify-content-between {{ Route::currentRouteName() == 'admin.projects.index' ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.projects.index') }}">
-                                    <i class="fa-solid fa-list-check fa-lg fa-fw"></i> Projects
+                                    <span>
+                                        <i class="fa-solid fa-list-check fa-lg fa-fw"></i> Projects
+                                    </span>
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -75,9 +78,11 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white rounded-1 {{ Route::currentRouteName() == 'admin.projects.deleted' ? 'bg-secondary' : '' }}"
+                                <a class="nav-link text-white rounded-1 hstack justify-content-between {{ Route::currentRouteName() == 'admin.projects.deleted' ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.projects.deleted') }}">
-                                    <i class="fa-solid fa-trash fa-lg fa-fw"></i> Deleted projects
+                                    <span>
+                                        <i class="fa-solid fa-trash fa-lg fa-fw"></i> Deleted projects
+                                    </span>
                                 </a>
                             </li>
                         </ul>

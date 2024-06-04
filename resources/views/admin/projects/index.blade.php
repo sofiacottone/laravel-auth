@@ -1,7 +1,14 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h2>Projects</h2>
+    <div class="hstack justify-content-between">
+        <h2>Projects</h2>
+        <div class="hstack gap-2">
+            <a href="{{ route('admin.projects.create') }}" class="btn btn-outline-success">
+                <i class="fa-solid fa-plus"></i>
+            </a>
+        </div>
+    </div>
 
     <table class="table table-striped mt-3">
         <thead>

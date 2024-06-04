@@ -110,10 +110,25 @@ class ProjectController extends Controller
                 ],
                 'client_name' => 'nullable|max:95',
                 'summary' => 'nullable|min:5',
+                'cover_image' => 'nullable|image|max:512',
             ]
         );
 
         $formData = $request->all();
+
+        // verify if the user updated an image
+        if ($request->hasFile('cover_image')) {
+
+            if ($project->cover_image) {
+                // delete previous images
+                Storage::delete($project->cover_image);
+            }
+            // upload the image in the right folder
+            $img_path = Storage::disk('public')->put('project_images', $formData['cover_image']);
+            // save the img path in the db column
+            $formData['cover_image'] = $img_path;
+        }
+
         $project->slug = Str::slug($formData['name'], '-');
         $project->update($formData);
 

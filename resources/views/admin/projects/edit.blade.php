@@ -45,6 +45,9 @@
             @enderror
         </div>
 
-        <button type="submit" class="btn btn-primary">Edit</button>
+        <a href="{{ route('admin.projects.show', ['project' => $project->slug]) }}" class="btn btn-outline-secondary mb-3">
+            Back
+        </a>
+        <button type="submit" class="btn btn-primary mb-3">Edit</button>
     </form>
 @endsection

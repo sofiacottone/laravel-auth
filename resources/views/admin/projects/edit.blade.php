@@ -3,7 +3,8 @@
 @section('content')
     <h2 class="mb-3">Edit: {{ $project->name }}</h2>
 
-    <form action="{{ route('admin.projects.update', ['project' => $project->id]) }}" method="POST">
+    <form action="{{ route('admin.projects.update', ['project' => $project->id]) }}" method="POST"
+        enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -21,6 +22,20 @@
             @error('client_name')
                 <div class="text-danger ps-2">{{ $message }}</div>
             @enderror
+        </div>
+        <div class="mb-3">
+            <label for="cover-image" class="form-label">Cover image</label>
+            <input type="file" class="form-control" id="cover-image" name="cover_image">
+            @error('cover_image')
+                <div class="text-danger ps-2">{{ $message }}</div>
+            @enderror
+            @if ($project->cover_image)
+                <div class="w-50 mt-3">
+                    <img src="{{ asset('storage/' . $project->cover_image) }}" class="img-fluid" alt="{{ $project->name }}">
+                </div>
+            @else
+                <div class="ms-2">No uploaded images found.</div>
+            @endif
         </div>
         <div class="mb-3">
             <label for="summary" class="form-label">Summary</label>

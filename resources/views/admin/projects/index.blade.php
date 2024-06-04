@@ -25,17 +25,18 @@
                     {{-- actions  --}}
                     <td>
                         <div class="hstack justify-content-center gap-2 text-center">
-                            <a href="{{ route('admin.projects.show', ['project' => $project->id]) }}"
+                            <a href="{{ route('admin.projects.show', ['project' => $project->slug]) }}"
                                 class="btn btn-outline-secondary">
                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                             </a>
 
-                            <a href="{{ route('admin.projects.edit', ['project' => $project->id]) }}"
+                            <a href="{{ route('admin.projects.edit', ['project' => $project->slug]) }}"
                                 class="btn btn-outline-secondary">
                                 <i class="fa-solid fa-pencil"></i>
                             </a>
 
-                            <form action="{{ route('admin.projects.destroy', ['project' => $project->id]) }}" method="POST">
+                            <form action="{{ route('admin.projects.destroy', ['project' => $project->slug]) }}"
+                                method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" data-project-title="{{ $project->name }}"

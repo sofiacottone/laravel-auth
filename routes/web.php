@@ -25,7 +25,7 @@ Route::middleware((['auth', 'verified']))
     ->prefix('admin')
     ->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-        Route::resource('projects', ProjectController::class);
+        Route::resource('projects', ProjectController::class)->parameters(['projects' => 'project:slug']);
         Route::get('/deleted', [ProjectController::class, 'deleted'])->name('projects.deleted');
         Route::get('/restore/{project}', [ProjectController::class, 'restore'])->name('projects.restore');
         Route::delete('/force-delete/{project}', [ProjectController::class, 'forceDelete'])->name('projects.forceDelete');

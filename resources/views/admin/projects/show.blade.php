@@ -10,6 +10,11 @@
         <div>Client: {{ $project->client_name }}</div>
         <div>Created: {{ $project->created_at }}</div>
         <div>Updated: {{ $project->updated_at }}</div>
+        @if ($project->cover_image)
+            <div class="w-50">
+                <img src="{{ asset('storage/' . $project->cover_image) }}" class="img-fluid" alt="{{ $project->name }}">
+            </div>
+        @endif
         <div class="mt-5">{{ $project->summary }}</div>
     </div>
 @endsection

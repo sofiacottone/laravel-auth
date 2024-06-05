@@ -25,7 +25,7 @@
         <div><span class="fw-bold">Created: </span>{{ $project->created_at }}</div>
         <div><span class="fw-bold">Updated: </span>{{ $project->updated_at }}</div>
         @if ($project->cover_image)
-            <div class="w-50">
+            <div class="w-50 mt-3">
                 <img src="{{ asset('storage/' . $project->cover_image) }}" class="img-fluid" alt="{{ $project->name }}">
             </div>
         @endif

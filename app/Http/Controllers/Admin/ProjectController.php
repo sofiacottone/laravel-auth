@@ -65,7 +65,7 @@ class ProjectController extends Controller
         $newProject->slug = Str::slug($newProject->name, '-');
         $newProject->save();
 
-        return redirect()->route('admin.projects.show', ['project' => $newProject->id]);
+        return redirect()->route('admin.projects.show', ['project' => $newProject->slug]);
     }
 
     /**
@@ -165,9 +165,9 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function restore($id)
+    public function restore(Project $project)
     {
-        Project::withTrashed()->findOrFail($id)->restore();
+        $project->restore();
 
         return redirect()->route('admin.projects.index');
     }
@@ -177,9 +177,9 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function forceDelete($id)
+    public function forceDelete(Project $project)
     {
-        Project::withTrashed()->findOrFail($id)->forceDelete();
+        $project->forceDelete();
 
         return redirect()->route('admin.projects.index');
     }
